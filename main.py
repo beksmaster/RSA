@@ -53,8 +53,8 @@ def ordin_ascii(keyword):  # перевод из букв в ascii
     keyword = ord(keyword)
     return keyword
 
-z = True
-while z ==True:
+c = True
+while c ==True:
     x = 0
     while x != 1:
         word = input("Word?:  ")
@@ -98,13 +98,26 @@ while z ==True:
 
     while i >= 0:  # цикл для
         word = word.upper()
-        cipher = ordin_ascii(word[i]) - 65
+        cipher = ordin_ascii(word[i])
         i = i - 1
         cipher_word = str(cipher) + cipher_word
         # print(cipher)
         cipher_word_int = int(cipher_word)
 
-    print(cipher_word)
-    cipher_txt = pow(cipher_word_int,e,n)
-    print("Зашифрованный текст", cipher_txt)
-    print("Расшифрованный текст", pow(cipher_txt ,d,n))
+    print("Исходный текст", cipher_word)
+    cipher_word_int = pow(cipher_word_int,e,n)
+    print("Зашифрованный текст", cipher_word_int)
+    cipher_word_keys =""
+    z = 0
+    cipher_word_int = pow(cipher_word_int, d, n)
+
+    length = len(str(cipher_word_int))
+    while z  <=length-2:
+        cipher_word_txt = str(cipher_word_int)
+        cipher_word_key = cipher_word_txt[z] + cipher_word_txt[z+1]
+        print("cipher_word_key"  , cipher_word_key)
+        cipher_word_key_str = str(chr_ascii(int(cipher_word_key)))
+        z= z+2
+        cipher_word_keys = cipher_word_keys+ cipher_word_key_str
+        print(cipher_word_keys)
+    print("Расшифрованный текст", cipher_word_keys)
