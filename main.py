@@ -85,7 +85,7 @@ while c ==True:
                         if NOD != e:
                             i = False
                             d = NOD
-                            print("Секретный ключ найден", d)
+                            print("Секретный ключ d, найден", d)
             else:
                 print("Неверное значение e, секретный ключ не найден")
 
@@ -110,14 +110,12 @@ while c ==True:
     cipher_word_keys =""
     z = 0
     cipher_word_int = pow(cipher_word_int, d, n)
-
+    print(cipher_word_int)
     length = len(str(cipher_word_int))
     while z  <=length-2:
         cipher_word_txt = str(cipher_word_int)
         cipher_word_key = cipher_word_txt[z] + cipher_word_txt[z+1]
-        print("cipher_word_key"  , cipher_word_key)
         cipher_word_key_str = str(chr_ascii(int(cipher_word_key)))
         z= z+2
         cipher_word_keys = cipher_word_keys+ cipher_word_key_str
-        print(cipher_word_keys)
     print("Расшифрованный текст", cipher_word_keys)
