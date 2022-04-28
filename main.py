@@ -105,11 +105,11 @@ while c ==True:
         cipher_word_int = int(cipher_word)
 
     print("Исходный текст", cipher_word)
-    cipher_word_int = pow(cipher_word_int,e,f)
+    cipher_word_int = pow(cipher_word_int,e,n)
     print("Зашифрованный текст", cipher_word_int)
     cipher_word_keys =""
     z = 0
-    cipher_word_int = pow(cipher_word_int, d, f)
+    cipher_word_int = pow(cipher_word_int, d, n)
     print(cipher_word_int)
     length = len(str(cipher_word_int))
     while z  <=length-2:
