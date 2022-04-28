@@ -17,7 +17,9 @@ def modinv(a, m):
         raise Exception('modular inverse does not exist')
     else:
         return x % m
-
+def chr_ascii(keyword):  # перевод из чисел в букву
+    keyword = chr(keyword)
+    return keyword
 
 i = True
 e = int(input("e? "))
@@ -35,11 +37,18 @@ while i == True:
         print("Неверное значение r ")
 
 y = (C * pow(X,e,n))%n #начальный шифр
-print("Eve gets Bob to decipher",y)
+print("Ева дает зашифровать",y)
 Z = pow(y,d,n) # даем на дешифрацию
-print('Bob says that the result is wrong:',Z)
+print('Боб говорит что что то не так:',Z)
 #X = modinv(X,n)
 P = (Z*modinv(X,n))%n
-res = (P*modinv(X,n))%n
-print(P)
-print(res)
+length = len(str(P))
+z = 0
+cipher_word_keys =""
+while z  <=length-2:
+    cipher_word_txt = str(P)
+    cipher_word_key = cipher_word_txt[z] + cipher_word_txt[z + 1]
+    cipher_word_key_str = str(chr_ascii(int(cipher_word_key)))
+    z = z + 2
+    cipher_word_keys = cipher_word_keys + cipher_word_key_str
+print("Результат совпадает?",cipher_word_keys)
