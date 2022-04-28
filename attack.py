@@ -23,20 +23,23 @@ i = True
 e = int(input("e? "))
 C = int(input("C? "))
 n = int(input("n? "))
-
-r = 0
+d = int(input("d? "))
+X= 0
 while i == True:
-    r = int(input("r? "))
-    if r < n:
-        if r != n:
-            checkNOD = math.gcd(r, n)
+    X = int(input("X? "))
+    if X < n:
+        if X != n:
+            checkNOD = math.gcd(X, n)
             i = False
     else:
         print("Неверное значение r ")
-x = pow(r, e, n)
-t = modinv(r, n)
-y = pow(x, C, n)
-d = int(input("d? "))
-w = pow(y,d,n)
-M = (t*w) %n
-print(M)
+
+y = (C * pow(X,e,n))%n #начальный шифр
+print("Eve gets Bob to decipher",y)
+Z = pow(y,d,n) # даем на дешифрацию
+print('Bob says that the result is wrong:',Z)
+#X = modinv(X,n)
+P = (Z*modinv(X,n))%n
+res = (P*modinv(X,n))%n
+print(P)
+print(res)
