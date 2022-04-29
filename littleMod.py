@@ -1,6 +1,15 @@
 import math
 import time
 start_time = time.time()
+def isPrime(n):
+    if n % 2 == 0:
+        return n == 2
+    d = 3
+    while d * d <= n and n % d != 0:
+        d += 2
+    return d * d > n
+
+
 def isint(s):
     try:
         int(s)
@@ -14,6 +23,7 @@ i = True
 k = 3
 res = 3
 NOD = 0
+a= 0
 
 while i == True:
     ostatok = n // k
@@ -26,6 +36,9 @@ while i == True:
         print(k)
 
     if check == True :
-        i = False
+        if NOD ==1:
+            a = isPrime(ostatok)
+            if a!=0:
+             i = False
 print("p: ",k," q: ", ostatok)
 print("--- %s seconds ---" % (time.time() - start_time))
