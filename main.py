@@ -1,8 +1,5 @@
 import math
-def power(a, n):
-    return (1 if n == 0
-            else power(a * a, n // 2) if n % 2 == 0
-    else a * power(a, n - 1))
+
 def egcd(a, b):
     if a == 0:
         return (b, 0, 1)
@@ -10,7 +7,7 @@ def egcd(a, b):
         g, y, x = egcd(b % a, a)
         return (g, x - (b // a) * y, y)
 i=0
-def modinv(a, m):
+def modinv(a, m): #Нахождение инверсии по модулю
     g, x, y = egcd(a, m)
     if g != 1:
         raise Exception('modular inverse does not exist')
@@ -21,33 +18,13 @@ def chr_ascii(keyword):  # перевод из чисел в букву
     keyword = chr(keyword)
     return keyword
 
-
-def while_prostoe(number):
-    a = 0
-    while a == 0:
-        a = prostoe(number)
-    return number
-
-def isPrime(n):
+def isPrime(n): #Проверка на простоту
     if n % 2 == 0:
         return n == 2
     d = 3
     while d * d <= n and n % d != 0:
         d += 2
     return d * d > n
-
-def prostoe(number):
-    k = 0
-    for i in range(2, number // 2 + 1):
-        if (number % i == 0):
-            k = k + 1
-    if (k <= 0):
-        print("Число простое")
-        return (number)
-    else:
-        print("Число не простое")
-        return 0
-
 
 def ordin_ascii(keyword):  # перевод из букв в ascii
     keyword = ord(keyword)
@@ -105,11 +82,11 @@ while c ==True:
         cipher_word_int = int(cipher_word)
 
     print("Исходный текст", cipher_word)
-    cipher_word_int = pow(cipher_word_int,e,n)
+    cipher_word_int = pow(cipher_word_int,e,n) #Шифруем текст
     print("Зашифрованный текст", cipher_word_int)
     cipher_word_keys =""
     z = 0
-    cipher_word_int = pow(cipher_word_int, d, n)
+    cipher_word_int = pow(cipher_word_int, d, n) #Расшифровываем текст
     print(cipher_word_int)
     length = len(str(cipher_word_int))
     while z  <=length-2:
