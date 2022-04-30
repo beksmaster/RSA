@@ -1,6 +1,6 @@
 import math
 import time
-start_time = time.time()
+
 def isPrime(n):
     if n % 2 == 0:
         return n == 2
@@ -26,6 +26,7 @@ NOD = 0
 a= 0
 
 while i == True:
+    start_time = time.time()
     ostatok = n // k
     res = n /k
     check = (float(res).is_integer())
@@ -33,7 +34,6 @@ while i == True:
     if check == False:
 
         k = k + 1
-        print(k)
 
     if check == True :
         if NOD ==1:
@@ -41,4 +41,4 @@ while i == True:
             if a!=0:
              i = False
 print("p: ",k," q: ", ostatok)
-print("--- %s seconds ---" % (time.time() - start_time))
+print("--- %s секунд ---" % (time.time() - start_time))

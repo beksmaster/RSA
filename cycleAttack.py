@@ -13,15 +13,14 @@ z = 0
 cipher_word_keys =""
 
 
-C = int(input("Введите шифротекст C"))
-n = int(input("Введите модуль n"))
-e = int(input("Введите e"))
+C = int(input("Введите шифротекст C: "))
+n = int(input("Введите модуль n: "))
+e = int(input("Введите e: "))
 X = 1
 X = C
 while i == True:
     Y = C            # Присваиваем предыдущий ответ С
     C = pow(C, e, n) # Возводим в степень
-    print("C1 = ", C)
     if X == C:
         i = False
         length = len(str(Y))
