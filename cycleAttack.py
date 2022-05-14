@@ -1,5 +1,5 @@
 import math
-
+#2.0
 
 def chr_ascii(keyword):  # перевод из чисел в букву
     keyword = chr(keyword)
