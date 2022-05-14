@@ -1,24 +1,31 @@
 import math
 
+
 def egcd(a, b):
     if a == 0:
         return (b, 0, 1)
     else:
         g, y, x = egcd(b % a, a)
         return (g, x - (b // a) * y, y)
-i=0
-def modinv(a, m): #Нахождение инверсии по модулю
+
+
+i = 0
+
+
+def modinv(a, m):  # Нахождение инверсии по модулю
     g, x, y = egcd(a, m)
     if g != 1:
         raise Exception('modular inverse does not exist')
     else:
         return x % m
 
+
 def chr_ascii(keyword):  # перевод из чисел в букву
     keyword = chr(keyword)
     return keyword
 
-def isPrime(n): #Проверка на простоту
+
+def isPrime(n):  # Проверка на простоту
     if n % 2 == 0:
         return n == 2
     d = 3
@@ -26,12 +33,14 @@ def isPrime(n): #Проверка на простоту
         d += 2
     return d * d > n
 
+
 def ordin_ascii(keyword):  # перевод из букв в ascii
     keyword = ord(keyword)
     return keyword
 
+
 c = True
-while c ==True:
+while c == True:
     x = 0
     while x != 1:
         word = input("Word?:  ")
@@ -44,7 +53,7 @@ while c ==True:
             a = isPrime(p)
             print(a)
         a = False
-        while 0== a:
+        while 0 == a:
             q = int(input("q? "))
             a = isPrime(q)
             print(a)
@@ -82,17 +91,17 @@ while c ==True:
         cipher_word_int = int(cipher_word)
 
     print("Исходный текст", cipher_word)
-    cipher_word_int = pow(cipher_word_int,e,n) #Шифруем текст
+    cipher_word_int = pow(cipher_word_int, e, n)  # Шифруем текст
     print("Зашифрованный текст", cipher_word_int)
-    cipher_word_keys =""
+    cipher_word_keys = ""
     z = 0
-    cipher_word_int = pow(cipher_word_int, d, n) #Расшифровываем текст
+    cipher_word_int = pow(cipher_word_int, d, n)  # Расшифровываем текст
     print(cipher_word_int)
     length = len(str(cipher_word_int))
-    while z  <=length-2:
+    while z <= length - 2:
         cipher_word_txt = str(cipher_word_int)
-        cipher_word_key = cipher_word_txt[z] + cipher_word_txt[z+1]
+        cipher_word_key = cipher_word_txt[z] + cipher_word_txt[z + 1]
         cipher_word_key_str = str(chr_ascii(int(cipher_word_key)))
-        z= z+2
-        cipher_word_keys = cipher_word_keys+ cipher_word_key_str
+        z = z + 2
+        cipher_word_keys = cipher_word_keys + cipher_word_key_str
     print("Расшифрованный текст", cipher_word_keys)
